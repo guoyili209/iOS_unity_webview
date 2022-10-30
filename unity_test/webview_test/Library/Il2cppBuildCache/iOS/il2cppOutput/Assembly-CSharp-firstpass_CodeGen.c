@@ -1,0 +1,125 @@
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+// 0x00000001 System.Void H5WebView::CSharpMessage(System.Int32,System.String)
+extern void H5WebView_CSharpMessage_mFC6BACF9917479225B94914DF75B546043F93034 (void);
+// 0x00000002 System.Void H5WebView::Start()
+extern void H5WebView_Start_m647A865A8981A14F7B0E6271655C74FD0999567C (void);
+// 0x00000003 System.Void H5WebView::OnButtonClick()
+extern void H5WebView_OnButtonClick_m918623F13106235A4AFA7351DCACEEB5D7BE327D (void);
+// 0x00000004 System.Void H5WebView::Update()
+extern void H5WebView_Update_m67EAC1D2972B10EDAA34C69DC3C53B50D2B2A11F (void);
+// 0x00000005 System.Void H5WebView::.ctor()
+extern void H5WebView__ctor_m2E3B0644D7B798C3F04E35607B5ADA26D9E1EFF3 (void);
+// 0x00000006 System.String JSONTest::get_url()
+extern void JSONTest_get_url_m40E41A6915D47384CBE12F99D00A91266C92C602 (void);
+// 0x00000007 System.Void JSONTest::set_url(System.String)
+extern void JSONTest_set_url_m25CFD90B7272DA9970926D3B7850B75BE304FC66 (void);
+// 0x00000008 System.Int32 JSONTest::get_msgType()
+extern void JSONTest_get_msgType_m8F81E5A4948705AA1FC0B0BD9E3AFACCC488D51A (void);
+// 0x00000009 System.Void JSONTest::set_msgType(System.Int32)
+extern void JSONTest_set_msgType_m9975EA8C8821A5BF9D564A6F51DE965217CB6DF2 (void);
+// 0x0000000A System.String JSONTest::get_msg()
+extern void JSONTest_get_msg_mFD718605E8972CF222988A2EABE0F4F2B5CDAAC5 (void);
+// 0x0000000B System.Void JSONTest::set_msg(System.String)
+extern void JSONTest_set_msg_mDC0A393B85BEB84369B1EC1B83889A1C91846018 (void);
+// 0x0000000C System.Void JSONTest::.ctor()
+extern void JSONTest__ctor_m05055FDC1E73F7CECBFCCFB7735C00D0383B8324 (void);
+// 0x0000000D System.Void OCMsg::Start()
+extern void OCMsg_Start_m2974246943CE1C7C5C33FF26E6D8AEA21769A7D2 (void);
+// 0x0000000E System.Void OCMsg::Update()
+extern void OCMsg_Update_mF7D096BB1D00CEDABB959C23CAEBAC97D94B57EA (void);
+// 0x0000000F System.Void OCMsg::OCMessage(System.String)
+extern void OCMsg_OCMessage_mF6A175029E7C1F053F6B8C97FE98AE3E0453D2EF (void);
+// 0x00000010 System.Void OCMsg::.ctor()
+extern void OCMsg__ctor_m1A639195ED3D97C07EA708C11D2260B5168604C6 (void);
+// 0x00000011 System.Int32 OCJson::get_msgType()
+extern void OCJson_get_msgType_mBD6F30DBC1D899B60777D83AC8771E442F3BD7E0 (void);
+// 0x00000012 System.Void OCJson::set_msgType(System.Int32)
+extern void OCJson_set_msgType_m08FA94E55232904718E8BB8D408B2C37335FAF4B (void);
+// 0x00000013 System.Int32 OCJson::get_msg()
+extern void OCJson_get_msg_m86C3857E410F8EBB5405D8CDACF9686CA2849752 (void);
+// 0x00000014 System.Void OCJson::set_msg(System.Int32)
+extern void OCJson_set_msg_m142E90D09FB4ADF7914F929797F38431BF0408DE (void);
+// 0x00000015 System.Void OCJson::.ctor()
+extern void OCJson__ctor_mC904C05E6BC608E2B39C01A552799E0A01F86398 (void);
+static Il2CppMethodPointer s_methodPointers[21] = 
+{
+	H5WebView_CSharpMessage_mFC6BACF9917479225B94914DF75B546043F93034,
+	H5WebView_Start_m647A865A8981A14F7B0E6271655C74FD0999567C,
+	H5WebView_OnButtonClick_m918623F13106235A4AFA7351DCACEEB5D7BE327D,
+	H5WebView_Update_m67EAC1D2972B10EDAA34C69DC3C53B50D2B2A11F,
+	H5WebView__ctor_m2E3B0644D7B798C3F04E35607B5ADA26D9E1EFF3,
+	JSONTest_get_url_m40E41A6915D47384CBE12F99D00A91266C92C602,
+	JSONTest_set_url_m25CFD90B7272DA9970926D3B7850B75BE304FC66,
+	JSONTest_get_msgType_m8F81E5A4948705AA1FC0B0BD9E3AFACCC488D51A,
+	JSONTest_set_msgType_m9975EA8C8821A5BF9D564A6F51DE965217CB6DF2,
+	JSONTest_get_msg_mFD718605E8972CF222988A2EABE0F4F2B5CDAAC5,
+	JSONTest_set_msg_mDC0A393B85BEB84369B1EC1B83889A1C91846018,
+	JSONTest__ctor_m05055FDC1E73F7CECBFCCFB7735C00D0383B8324,
+	OCMsg_Start_m2974246943CE1C7C5C33FF26E6D8AEA21769A7D2,
+	OCMsg_Update_mF7D096BB1D00CEDABB959C23CAEBAC97D94B57EA,
+	OCMsg_OCMessage_mF6A175029E7C1F053F6B8C97FE98AE3E0453D2EF,
+	OCMsg__ctor_m1A639195ED3D97C07EA708C11D2260B5168604C6,
+	OCJson_get_msgType_mBD6F30DBC1D899B60777D83AC8771E442F3BD7E0,
+	OCJson_set_msgType_m08FA94E55232904718E8BB8D408B2C37335FAF4B,
+	OCJson_get_msg_m86C3857E410F8EBB5405D8CDACF9686CA2849752,
+	OCJson_set_msg_m142E90D09FB4ADF7914F929797F38431BF0408DE,
+	OCJson__ctor_mC904C05E6BC608E2B39C01A552799E0A01F86398,
+};
+static const int32_t s_InvokerIndices[21] = 
+{
+	6248,
+	4582,
+	4582,
+	4582,
+	4582,
+	4481,
+	3727,
+	4459,
+	3709,
+	4481,
+	3727,
+	4582,
+	4582,
+	4582,
+	3727,
+	4582,
+	4459,
+	3709,
+	4459,
+	3709,
+	4582,
+};
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharpU2Dfirstpass_CodeGenModule;
+const Il2CppCodeGenModule g_AssemblyU2DCSharpU2Dfirstpass_CodeGenModule = 
+{
+	"Assembly-CSharp-firstpass.dll",
+	21,
+	s_methodPointers,
+	0,
+	NULL,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};
