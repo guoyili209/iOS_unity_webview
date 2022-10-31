@@ -8,6 +8,14 @@ Library/Bee/artifacts/mvdfrm/Unity.TextMeshPro.ref.dll_0220FBA39878038E.mvfrm
 Library/Bee/artifacts/mvdfrm/Unity.Timeline.Editor.ref.dll_DBD85984573F0B85.mvfrm
 Library/Bee/artifacts/mvdfrm/Unity.Timeline.ref.dll_7F91E8C8AE2BCEEC.mvfrm
 Library/Bee/artifacts/mvdfrm/Unity.VSCode.Editor.ref.dll_A18F31222F35312C.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Core.Editor.ref.dll_351F5978B923B1B0.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Core.ref.dll_EA92E8A85D600211.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Flow.Editor.ref.dll_B2504227C8023CF1.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Flow.ref.dll_31A3C8FEDF6976C0.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.SettingsProvider.Editor.ref.dll_295465F8D4C4859B.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Shared.Editor.ref.dll_FC9237B9DF88B7CA.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.State.Editor.ref.dll_C13AB9B8D4557B0C.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.State.ref.dll_695E51A145AA52F5.mvfrm
 Library/Bee/artifacts/mvdfrm/Unity.VisualStudio.Editor.ref.dll_CFFC789CDF177EE0.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEditor.UI.ref.dll_6A0DDEC5ED23C452.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.UI.ref.dll_2673B520F345ECBD.mvfrm
@@ -35,7 +43,6 @@ Library/Bee/artifacts/mvdfrm/UnityEngine.AnimationModule.dll_F507F40706F23003.mv
 Library/Bee/artifacts/mvdfrm/UnityEngine.ARModule.dll_8EB551534F782C16.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.AssetBundleModule.dll_0981E24480D2B591.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.AudioModule.dll_92E25EBD78E75835.mvfrm
-Library/Bee/artifacts/mvdfrm/UnityEngine.AutoStreamingModule.dll_03DB9CA44A14D372.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.ClothModule.dll_F9CABBB853043719.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.CoreModule.dll_5135753D8BA1F344.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.CrashReportingModule.dll_DBBC68245D2B395C.mvfrm
@@ -93,3 +100,4 @@ Library/Bee/artifacts/mvdfrm/UnityEngine.VideoModule.dll_B7EBE3283B7973DA.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.VRModule.dll_23885102F05C5871.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.WindModule.dll_C78450661CD871AD.mvfrm
 Library/Bee/artifacts/mvdfrm/UnityEngine.XRModule.dll_564714077996A5CF.mvfrm
+Library/Bee/artifacts/mvdfrm/Unity.VisualScripting.Antlr3.Runtime.dll_43C86C9B1562F78B.mvfrm

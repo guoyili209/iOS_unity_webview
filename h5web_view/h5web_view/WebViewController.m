@@ -15,33 +15,29 @@
     [self HideWebView];
 }
 -(void)HideWebView{
-    [self willMoveToParentViewController:nil];
-    [self.view removeFromSuperview];
-    [self removeFromParentViewController];
+    if([self.webview isKindOfClass:[WKWebView class]]){
+//        self.webview.UIDelegate = nil;
+//        self.webview.navigationDelegate = nil;
+    }
+    [self.webview stopLoading];
+    [self.webview removeFromSuperview];
+//    [self.webview removeObserver:self forKeyPath:@"loading"];
+    self.webview=nil;
 }
 -(void)ShowWebView{
     NSLog(@"open webview");
-    UIViewController *resultVC;
-    UIApplication *application = [UIApplication sharedApplication];
-    UIWindow *keyWindow=[self _findKeyWindow:application];
-    resultVC = [keyWindow rootViewController];
-    while (resultVC.presentedViewController) {
-        resultVC = [self _topViewController:resultVC.presentedViewController];
-    }
-//    [resultVC addChildViewController:self];
-    [UnityGetGLViewController() addChildViewController:self];
     
     [self DidShowWebView];
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Message" preferredStyle:UIAlertControllerStyleActionSheet];
-    [self presentViewController:alert animated:YES completion:^{
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,(int64_t)(1*NSEC_PER_SEC)),
-                       dispatch_get_main_queue(),^{
-            [alert dismissViewControllerAnimated:YES completion:^{
-                
-            }];
-        });
-    }];
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Title" message:@"Message" preferredStyle:UIAlertControllerStyleActionSheet];
+//    [self presentViewController:alert animated:YES completion:^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,(int64_t)(1*NSEC_PER_SEC)),
+//                       dispatch_get_main_queue(),^{
+//            [alert dismissViewControllerAnimated:YES completion:^{
+//
+//            }];
+//        });
+//    }];
     
     
     UIButton *closebtn = [[UIButton alloc]initWithFrame:CGRectMake(100,100,100,100)];
@@ -50,14 +46,11 @@
     [closebtn setTitle:@"Hello, World!" forState:UIControlStateNormal];
     //    closebtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [closebtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    
+
     [closebtn addTarget:self action:@selector(close_webView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:closebtn];
-    
+    [UnityGetGLViewController().view addSubview:closebtn];
 }
 -(void)DidShowWebView{
-    
-    
     // Do any additional setup after loading the view.
     WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
     configuration.selectionGranularity = WKSelectionGranularityDynamic;
@@ -67,24 +60,23 @@
     //    [userContent addScriptMessageHandler:self name:@"NativeMethod"];
     
     configuration.userContentController = userContent;
-    
+    configuration.websiteDataStore = [WKWebsiteDataStore defaultDataStore];
+    //---
     WKPreferences *preferences = [WKPreferences new];
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
     WKWebpagePreferences *webpagePreference = [WKWebpagePreferences new];
     webpagePreference.allowsContentJavaScript = YES;
     configuration.preferences = preferences;
     configuration.defaultWebpagePreferences = webpagePreference;
-    
+    //---
     self.webview = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds configuration:configuration];
 //    NSURL *url_ = [NSURL URLWithString:@"http://192.168.11.206:3000/index.html"];
     NSURL *url_ = [NSURL URLWithString:self.url];
     NSURLRequest *request = [NSURLRequest requestWithURL:url_];
+    NSLog(@"add view");
+    [UnityGetGLViewController().view addSubview:self.webview];
     NSLog(@"load");
     [self.webview loadRequest:request];
-    NSLog(@"add view");
-    [self.view addSubview:self.webview];
-//    NSLog(@"add controller");
-//    [UnityGetGLViewController().view addSubview:self.webview];
     
     //    webview.UIDelegate = self;
     //    webview.navigationDelegate = self;
@@ -92,6 +84,7 @@
     //
     //    }];
 }
+
 -(UIWindow *)_findKeyWindow:(UIApplication *)application{
     UIWindow *keyWindow = nil;
     if(@available(iOS 13.0,*)){
@@ -133,10 +126,6 @@
     return nil;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self ShowWebView];
-}
 //---WKScriptMessageHandler---
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     if([@"NativeMethod" isEqualToString:message.name]){
@@ -145,17 +134,17 @@
         }
     }
 }
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.webview.configuration.userContentController addScriptMessageHandler:self name:@"NativeMethod"];
-    //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goPageSelectClass];
-    //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goClasscardList];
-}
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"NativeMethod"];
-    //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goPageSelectClass];
-    //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goClasscardList];
-}
+//-(void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    [self.webview.configuration.userContentController addScriptMessageHandler:self name:@"NativeMethod"];
+//    //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goPageSelectClass];
+//    //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goClasscardList];
+//}
+//-(void)viewWillDisappear:(BOOL)animated{
+//    [super viewWillDisappear:animated];
+//    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"NativeMethod"];
+//    //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goPageSelectClass];
+//    //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goClasscardList];
+//}
 //window.webkit.messageHandlers.方法名.postMessage(参数)
 @end

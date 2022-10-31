@@ -75,8 +75,10 @@ struct CullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8;
 IL2CPP_EXTERN_C RuntimeClass* Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* JsonConvert_t01281FFED14CC2AEFABB6608315D90ED5C46E0C2_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C String_t* _stringLiteral1B59B11D6CEE9650B23BCC900A5A3CE8A8E575E1;
 IL2CPP_EXTERN_C String_t* _stringLiteral87F8ED9157125FFC4DA9E06A7B8011AD80A53FE1;
 IL2CPP_EXTERN_C String_t* _stringLiteralB3D0AC11A704E46CB0A9771B60775F304657C37C;
+IL2CPP_EXTERN_C String_t* _stringLiteralDDA8C62F936A32AA309681868F7DC76BA7C5F15D;
 IL2CPP_EXTERN_C const RuntimeMethod* JsonConvert_DeserializeObject_TisOCJson_tC03E279995EDBEF6E01261A65009A13A41732544_m706AC08DC855BBB28C11F3B6E40F073531E6CF7A_RuntimeMethod_var;
 
 
@@ -102,8 +104,12 @@ struct JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4  : public RuntimeObjec
 	String_t* ___U3CurlU3Ek__BackingField_0;
 	// System.Int32 JSONTest::<msgType>k__BackingField
 	int32_t ___U3CmsgTypeU3Ek__BackingField_1;
-	// System.String JSONTest::<msg>k__BackingField
-	String_t* ___U3CmsgU3Ek__BackingField_2;
+	// System.String JSONTest::<gameObjName>k__BackingField
+	String_t* ___U3CgameObjNameU3Ek__BackingField_2;
+	// System.String JSONTest::<OCMessageMethodName>k__BackingField
+	String_t* ___U3COCMessageMethodNameU3Ek__BackingField_3;
+	// System.String JSONTest::<data>k__BackingField
+	String_t* ___U3CdataU3Ek__BackingField_4;
 };
 
 // OCJson
@@ -378,16 +384,20 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* JsonConvert_DeserializeObject_
 
 // System.Void JSONTest::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JSONTest__ctor_m05055FDC1E73F7CECBFCCFB7735C00D0383B8324 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, const RuntimeMethod* method) ;
+// System.Void JSONTest::set_gameObjName(System.String)
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_gameObjName_m95F0423E91833678F8730D173E630616C74BF130_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) ;
+// System.Void JSONTest::set_OCMessageMethodName(System.String)
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_OCMessageMethodName_m283134F9F4215DB3184A4EEB07026923DB71DC46_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) ;
 // System.Void JSONTest::set_url(System.String)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_url_m25CFD90B7272DA9970926D3B7850B75BE304FC66_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) ;
-// System.Void JSONTest::set_msg(System.String)
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_msg_mDC0A393B85BEB84369B1EC1B83889A1C91846018_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) ;
+// System.Void JSONTest::set_data(System.String)
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_data_m129E1525584572D0F66FF5BB5F3746127EB87B3C_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) ;
 // System.Void JSONTest::set_msgType(System.Int32)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_msgType_m9975EA8C8821A5BF9D564A6F51DE965217CB6DF2_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, int32_t ___value0, const RuntimeMethod* method) ;
 // System.String Newtonsoft.Json.JsonConvert::SerializeObject(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JsonConvert_SerializeObject_m277670BD344964CB2A61751E5A3D62DB5B1321C7 (RuntimeObject* ___value0, const RuntimeMethod* method) ;
-// System.Void H5WebView::CSharpMessage(System.Int32,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void H5WebView_CSharpMessage_m26532C43A7743E6D69EC502F88EE4F6F140496E9 (int32_t ___msgType0, String_t* ___json1, const RuntimeMethod* method) ;
+// System.Void H5WebView::CSharpMessage(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void H5WebView_CSharpMessage_m9E24B21115728BC593191A7F56985FDF72DE5A4F (String_t* ___json0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Debug::Log(System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB (RuntimeObject* ___message0, const RuntimeMethod* method) ;
 // System.Void UnityEngine.MonoBehaviour::.ctor()
@@ -399,7 +409,7 @@ inline OCJson_tC03E279995EDBEF6E01261A65009A13A41732544* JsonConvert_Deserialize
 {
 	return ((  OCJson_tC03E279995EDBEF6E01261A65009A13A41732544* (*) (String_t*, const RuntimeMethod*))JsonConvert_DeserializeObject_TisRuntimeObject_m4AED5444440BFC03D3CB9506F186AC7C37B45EF2_gshared)(___value0, method);
 }
-IL2CPP_EXTERN_C void DEFAULT_CALL CSharpMessage(int32_t, char*);
+IL2CPP_EXTERN_C void DEFAULT_CALL CSharpMessage(char*);
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -413,21 +423,21 @@ IL2CPP_EXTERN_C void DEFAULT_CALL CSharpMessage(int32_t, char*);
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// System.Void H5WebView::CSharpMessage(System.Int32,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void H5WebView_CSharpMessage_m26532C43A7743E6D69EC502F88EE4F6F140496E9 (int32_t ___msgType0, String_t* ___json1, const RuntimeMethod* method) 
+// System.Void H5WebView::CSharpMessage(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void H5WebView_CSharpMessage_m9E24B21115728BC593191A7F56985FDF72DE5A4F (String_t* ___json0, const RuntimeMethod* method) 
 {
-	typedef void (DEFAULT_CALL *PInvokeFunc) (int32_t, char*);
+	typedef void (DEFAULT_CALL *PInvokeFunc) (char*);
 
-	// Marshaling of parameter '___json1' to native representation
-	char* ____json1_marshaled = NULL;
-	____json1_marshaled = il2cpp_codegen_marshal_string(___json1);
+	// Marshaling of parameter '___json0' to native representation
+	char* ____json0_marshaled = NULL;
+	____json0_marshaled = il2cpp_codegen_marshal_string(___json0);
 
 	// Native function invocation
-	reinterpret_cast<PInvokeFunc>(CSharpMessage)(___msgType0, ____json1_marshaled);
+	reinterpret_cast<PInvokeFunc>(CSharpMessage)(____json0_marshaled);
 
-	// Marshaling cleanup of parameter '___json1' native representation
-	il2cpp_codegen_marshal_free(____json1_marshaled);
-	____json1_marshaled = NULL;
+	// Marshaling cleanup of parameter '___json0' native representation
+	il2cpp_codegen_marshal_free(____json0_marshaled);
+	____json0_marshaled = NULL;
 
 }
 // System.Void H5WebView::Start()
@@ -447,40 +457,53 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void H5WebView_OnButtonClick_m918623F13106235
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JsonConvert_t01281FFED14CC2AEFABB6608315D90ED5C46E0C2_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1B59B11D6CEE9650B23BCC900A5A3CE8A8E575E1);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87F8ED9157125FFC4DA9E06A7B8011AD80A53FE1);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB3D0AC11A704E46CB0A9771B60775F304657C37C);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDDA8C62F936A32AA309681868F7DC76BA7C5F15D);
 		s_Il2CppMethodInitialized = true;
 	}
-	String_t* V_0 = NULL;
+	JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* V_0 = NULL;
+	String_t* V_1 = NULL;
 	{
 		// JSONTest obj = new JSONTest();
 		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_0 = (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4*)il2cpp_codegen_object_new(JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4_il2cpp_TypeInfo_var);
 		NullCheck(L_0);
 		JSONTest__ctor_m05055FDC1E73F7CECBFCCFB7735C00D0383B8324(L_0, NULL);
-		// obj.url = "http://www.baidu.com";
-		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_1 = L_0;
+		V_0 = L_0;
+		// obj.gameObjName = "OC";
+		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_1 = V_0;
 		NullCheck(L_1);
-		JSONTest_set_url_m25CFD90B7272DA9970926D3B7850B75BE304FC66_inline(L_1, _stringLiteralB3D0AC11A704E46CB0A9771B60775F304657C37C, NULL);
-		// obj.msg = "test";
-		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_2 = L_1;
+		JSONTest_set_gameObjName_m95F0423E91833678F8730D173E630616C74BF130_inline(L_1, _stringLiteralDDA8C62F936A32AA309681868F7DC76BA7C5F15D, NULL);
+		// obj.OCMessageMethodName = "OCMessage";
+		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_2 = V_0;
 		NullCheck(L_2);
-		JSONTest_set_msg_mDC0A393B85BEB84369B1EC1B83889A1C91846018_inline(L_2, _stringLiteral87F8ED9157125FFC4DA9E06A7B8011AD80A53FE1, NULL);
-		// obj.msgType = 100;
-		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_3 = L_2;
+		JSONTest_set_OCMessageMethodName_m283134F9F4215DB3184A4EEB07026923DB71DC46_inline(L_2, _stringLiteral1B59B11D6CEE9650B23BCC900A5A3CE8A8E575E1, NULL);
+		// obj.url = "http://www.baidu.com";
+		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_3 = V_0;
 		NullCheck(L_3);
-		JSONTest_set_msgType_m9975EA8C8821A5BF9D564A6F51DE965217CB6DF2_inline(L_3, ((int32_t)100), NULL);
+		JSONTest_set_url_m25CFD90B7272DA9970926D3B7850B75BE304FC66_inline(L_3, _stringLiteralB3D0AC11A704E46CB0A9771B60775F304657C37C, NULL);
+		// obj.data = "test";
+		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_4 = V_0;
+		NullCheck(L_4);
+		JSONTest_set_data_m129E1525584572D0F66FF5BB5F3746127EB87B3C_inline(L_4, _stringLiteral87F8ED9157125FFC4DA9E06A7B8011AD80A53FE1, NULL);
+		// obj.msgType = 100;
+		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_5 = V_0;
+		NullCheck(L_5);
+		JSONTest_set_msgType_m9975EA8C8821A5BF9D564A6F51DE965217CB6DF2_inline(L_5, ((int32_t)100), NULL);
 		// string json = JsonConvert.SerializeObject(obj);
+		JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* L_6 = V_0;
 		il2cpp_codegen_runtime_class_init_inline(JsonConvert_t01281FFED14CC2AEFABB6608315D90ED5C46E0C2_il2cpp_TypeInfo_var);
-		String_t* L_4;
-		L_4 = JsonConvert_SerializeObject_m277670BD344964CB2A61751E5A3D62DB5B1321C7(L_3, NULL);
-		V_0 = L_4;
-		// CSharpMessage(100,json);
-		String_t* L_5 = V_0;
-		H5WebView_CSharpMessage_m26532C43A7743E6D69EC502F88EE4F6F140496E9(((int32_t)100), L_5, NULL);
+		String_t* L_7;
+		L_7 = JsonConvert_SerializeObject_m277670BD344964CB2A61751E5A3D62DB5B1321C7(L_6, NULL);
+		V_1 = L_7;
+		// CSharpMessage(json);
+		String_t* L_8 = V_1;
+		H5WebView_CSharpMessage_m9E24B21115728BC593191A7F56985FDF72DE5A4F(L_8, NULL);
 		// Debug.Log(json);
-		String_t* L_6 = V_0;
+		String_t* L_9 = V_1;
 		il2cpp_codegen_runtime_class_init_inline(Debug_t8394C7EEAECA3689C2C9B9DE9C7166D73596276F_il2cpp_TypeInfo_var);
-		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_6, NULL);
+		Debug_Log_m87A9A3C761FF5C43ED8A53B16190A53D08F818BB(L_9, NULL);
 		// }
 		return;
 	}
@@ -548,23 +571,63 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JSONTest_set_msgType_m9975EA8C8821A5BF9D
 		return;
 	}
 }
-// System.String JSONTest::get_msg()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JSONTest_get_msg_mFD718605E8972CF222988A2EABE0F4F2B5CDAAC5 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, const RuntimeMethod* method) 
+// System.String JSONTest::get_gameObjName()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JSONTest_get_gameObjName_mE73C37E09C16CEE69468D678D68469788B0D0521 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, const RuntimeMethod* method) 
 {
 	{
-		// public string msg{get;set;}
-		String_t* L_0 = __this->___U3CmsgU3Ek__BackingField_2;
+		// public string gameObjName{get;set;}
+		String_t* L_0 = __this->___U3CgameObjNameU3Ek__BackingField_2;
 		return L_0;
 	}
 }
-// System.Void JSONTest::set_msg(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JSONTest_set_msg_mDC0A393B85BEB84369B1EC1B83889A1C91846018 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
+// System.Void JSONTest::set_gameObjName(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JSONTest_set_gameObjName_m95F0423E91833678F8730D173E630616C74BF130 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
 {
 	{
-		// public string msg{get;set;}
+		// public string gameObjName{get;set;}
 		String_t* L_0 = ___value0;
-		__this->___U3CmsgU3Ek__BackingField_2 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CmsgU3Ek__BackingField_2), (void*)L_0);
+		__this->___U3CgameObjNameU3Ek__BackingField_2 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CgameObjNameU3Ek__BackingField_2), (void*)L_0);
+		return;
+	}
+}
+// System.String JSONTest::get_OCMessageMethodName()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JSONTest_get_OCMessageMethodName_mD08B0D7BE1051F9F81FD5D2E088BCCFD98183F30 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, const RuntimeMethod* method) 
+{
+	{
+		// public string OCMessageMethodName{get;set;}
+		String_t* L_0 = __this->___U3COCMessageMethodNameU3Ek__BackingField_3;
+		return L_0;
+	}
+}
+// System.Void JSONTest::set_OCMessageMethodName(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JSONTest_set_OCMessageMethodName_m283134F9F4215DB3184A4EEB07026923DB71DC46 (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
+{
+	{
+		// public string OCMessageMethodName{get;set;}
+		String_t* L_0 = ___value0;
+		__this->___U3COCMessageMethodNameU3Ek__BackingField_3 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3COCMessageMethodNameU3Ek__BackingField_3), (void*)L_0);
+		return;
+	}
+}
+// System.String JSONTest::get_data()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* JSONTest_get_data_m43D516BE9F4B97F9F3F1C4718E09E9E4892204DD (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, const RuntimeMethod* method) 
+{
+	{
+		// public string data{get;set;}
+		String_t* L_0 = __this->___U3CdataU3Ek__BackingField_4;
+		return L_0;
+	}
+}
+// System.Void JSONTest::set_data(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JSONTest_set_data_m129E1525584572D0F66FF5BB5F3746127EB87B3C (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
+{
+	{
+		// public string data{get;set;}
+		String_t* L_0 = ___value0;
+		__this->___U3CdataU3Ek__BackingField_4 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CdataU3Ek__BackingField_4), (void*)L_0);
 		return;
 	}
 }
@@ -610,12 +673,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OCMsg_OCMessage_mF6A175029E7C1F053F6B8C9
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&JsonConvert_t01281FFED14CC2AEFABB6608315D90ED5C46E0C2_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
+	OCJson_tC03E279995EDBEF6E01261A65009A13A41732544* V_0 = NULL;
 	{
 		// OCJson _json= JsonConvert.DeserializeObject<OCJson>(json);
 		String_t* L_0 = ___json0;
 		il2cpp_codegen_runtime_class_init_inline(JsonConvert_t01281FFED14CC2AEFABB6608315D90ED5C46E0C2_il2cpp_TypeInfo_var);
 		OCJson_tC03E279995EDBEF6E01261A65009A13A41732544* L_1;
 		L_1 = JsonConvert_DeserializeObject_TisOCJson_tC03E279995EDBEF6E01261A65009A13A41732544_m706AC08DC855BBB28C11F3B6E40F073531E6CF7A(L_0, JsonConvert_DeserializeObject_TisOCJson_tC03E279995EDBEF6E01261A65009A13A41732544_m706AC08DC855BBB28C11F3B6E40F073531E6CF7A_RuntimeMethod_var);
+		V_0 = L_1;
 		// txt.text = json;
 		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_2 = __this->___txt_4;
 		String_t* L_3 = ___json0;
@@ -690,6 +755,26 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void OCJson__ctor_mC904C05E6BC608E2B39C01A552
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_gameObjName_m95F0423E91833678F8730D173E630616C74BF130_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
+{
+	{
+		// public string gameObjName{get;set;}
+		String_t* L_0 = ___value0;
+		__this->___U3CgameObjNameU3Ek__BackingField_2 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CgameObjNameU3Ek__BackingField_2), (void*)L_0);
+		return;
+	}
+}
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_OCMessageMethodName_m283134F9F4215DB3184A4EEB07026923DB71DC46_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
+{
+	{
+		// public string OCMessageMethodName{get;set;}
+		String_t* L_0 = ___value0;
+		__this->___U3COCMessageMethodNameU3Ek__BackingField_3 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3COCMessageMethodNameU3Ek__BackingField_3), (void*)L_0);
+		return;
+	}
+}
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_url_m25CFD90B7272DA9970926D3B7850B75BE304FC66_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
 {
 	{
@@ -700,13 +785,13 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_url_m25CFD90B72
 		return;
 	}
 }
-IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_msg_mDC0A393B85BEB84369B1EC1B83889A1C91846018_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
+IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void JSONTest_set_data_m129E1525584572D0F66FF5BB5F3746127EB87B3C_inline (JSONTest_t49870EE2C054017228F33D5A8AE9AB8E037B97B4* __this, String_t* ___value0, const RuntimeMethod* method) 
 {
 	{
-		// public string msg{get;set;}
+		// public string data{get;set;}
 		String_t* L_0 = ___value0;
-		__this->___U3CmsgU3Ek__BackingField_2 = L_0;
-		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CmsgU3Ek__BackingField_2), (void*)L_0);
+		__this->___U3CdataU3Ek__BackingField_4 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CdataU3Ek__BackingField_4), (void*)L_0);
 		return;
 	}
 }

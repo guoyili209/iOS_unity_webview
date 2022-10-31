@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger,HFiveMessageType){
 @implementation HFiveGameTool
 
 
-void CSharpMessage(int msgType,char *json){
+void CSharpMessage(char *json){
     NSError *e=nil;
     NSString *string = [[NSString alloc] initWithCString:json encoding:NSUTF8StringEncoding];
     NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
@@ -34,6 +34,10 @@ void CSharpMessage(int msgType,char *json){
         NSLog(@"Item:%@",jsonDic);
         NSString *url = [jsonDic valueForKey:@"url"];
         NSLog(@"url:%@",url);
+        int msgType = [[jsonDic valueForKey:@"msgType"] intValue];
+        NSString *gameObjName =[jsonDic valueForKey:@"gameObjName"];
+        NSString *OCMessageMethodName =[jsonDic valueForKey:@"OCMessageMethodName"];
+        
         if([UnityBridge SharedObject].wvc==nil){
             [UnityBridge SharedObject].wvc = [WebViewController new];
         }
@@ -47,7 +51,7 @@ void CSharpMessage(int msgType,char *json){
             options:NSJSONWritingPrettyPrinted error:nil];
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
-            UnitySendMessage("OC", "OCMessage", (char*)[jsonString UTF8String]);
+            UnitySendMessage((char*)[gameObjName UTF8String],(char*)[OCMessageMethodName UTF8String] , (char*)[jsonString UTF8String]);
             
         }else if(msgType == ChargeFinish){
             

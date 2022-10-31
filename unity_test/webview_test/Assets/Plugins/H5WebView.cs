@@ -10,7 +10,7 @@ public class H5WebView : MonoBehaviour
 {
     [DllImport("__Internal")]
     // public static extern void IOSshowWebView(string URL, int pixelSpace);
-    public static extern void CSharpMessage(int msgType,string json);
+    public static extern void CSharpMessage(string json);
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +19,15 @@ public class H5WebView : MonoBehaviour
     public void OnButtonClick(){
         JSONTest obj = new JSONTest();
         // obj.url = "http://192.168.11.206:3000/index.html";
+        obj.gameObjName = "OC";
+        obj.OCMessageMethodName = "OCMessage";
         obj.url = "http://www.baidu.com";
-            obj.msg = "test";
+            obj.data = "test";
             obj.msgType = 100;
+            
+
         string json = JsonConvert.SerializeObject(obj);
-        CSharpMessage(100,json);
+        CSharpMessage(json);
         // IOSshowWebView("http://www.baidu.com",1);
         Debug.Log(json);
     }
@@ -37,5 +41,7 @@ public class H5WebView : MonoBehaviour
 public class JSONTest{
        public string url{get;set;}
    public int msgType{get;set;}
-   public string msg{get;set;}
+   public string gameObjName{get;set;}
+   public string OCMessageMethodName{get;set;}
+   public string data{get;set;}
 }

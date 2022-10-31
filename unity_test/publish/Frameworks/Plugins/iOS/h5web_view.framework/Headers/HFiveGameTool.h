@@ -17,7 +17,7 @@ extern
 extern "C"{
 #endif
 UIViewController *UnityGetGLViewController(void);
-void CSharpMessage(int msgType,char * json);
+void CSharpMessage(char * json);
 void UnitySendMessage(char *className,char *methodName,char *param);
 #if defined (__cplusplus)
 }

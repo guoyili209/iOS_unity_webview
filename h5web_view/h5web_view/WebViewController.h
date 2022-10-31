@@ -11,11 +11,11 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface WebViewController : UIViewController<WKScriptMessageHandler>
+@interface WebViewController : NSObject<WKScriptMessageHandler>
 -(void)HideWebView;
 -(void)ShowWebView;
-@property WKWebView *webview;
-@property NSString *url;
+@property (nonatomic,strong) WKWebView *webview;
+@property (nonatomic,strong) NSString *url;
 
 @end
 

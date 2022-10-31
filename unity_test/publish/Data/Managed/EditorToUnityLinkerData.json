@@ -3023,6 +3023,7 @@
     ],
     "forceIncludeModules": [],
     "forceExcludeModules": [
+        "AutoStreaming",
         "ClusterInput",
         "ClusterRenderer",
         "NVIDIA",
