@@ -1,6 +1,0 @@
-framework module h5web_view {
-  umbrella header "h5web_view.h"
-
-  export *
-  module * { export * }
-}
