@@ -15,6 +15,7 @@
     [self HideWebView];
 }
 -(void)HideWebView{
+    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"JSMessage"];
     if([self.webview isKindOfClass:[WKWebView class]]){
         //        self.webview.UIDelegate = nil;
         //        self.webview.navigationDelegate = nil;
@@ -57,7 +58,7 @@
     configuration.allowsInlineMediaPlayback = YES;
     
     WKUserContentController *userContent = [[WKUserContentController alloc] init];
-//    [userContent addScriptMessageHandler:self name:@"JSMessage"];
+        [userContent addScriptMessageHandler:self name:@"JSMessage"];
     
     configuration.userContentController = userContent;
     configuration.websiteDataStore = [WKWebsiteDataStore defaultDataStore];
@@ -89,27 +90,27 @@
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     if([@"JSMessage" isEqualToString:message.name]){
         NSLog(@"%@",message.body);
-        
+        [self EvaluateJS:@"window.OCMessage('hello JS')"];
     }
 }
-- (void)evaluateJS:(const char *)js
+- (void)EvaluateJS:(NSString *)js
 {
     if (self.webview == nil)
         return;
-    NSString *jsStr = [NSString stringWithUTF8String:js];
-    [self.webview evaluateJavaScript:jsStr completionHandler:^(NSString *result, NSError *error) {
-        
+    //    NSString *jsStr = [NSString stringWithUTF8String:js];
+    [self.webview evaluateJavaScript:js completionHandler:^(NSString *result, NSError *error) {
+        NSLog(@"%@", result);
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
-//    [super viewWillAppear:animated];
-    [self.webview.configuration.userContentController addScriptMessageHandler:self name:@"JSMessage"];
+    //    [super viewWillAppear:animated];
+//    [self.webview.configuration.userContentController addScriptMessageHandler:self name:@"JSMessage"];
     //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goPageSelectClass];
     //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goClasscardList];
 }
 -(void)viewWillDisappear:(BOOL)animated{
-//    [super viewWillDisappear:animated];
-    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"JSMessage"];
+    //    [super viewWillDisappear:animated];
+//    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"JSMessage"];
     //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goPageSelectClass];
     //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goClasscardList];
 }

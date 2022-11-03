@@ -14,6 +14,7 @@
 @interface WebViewController : NSObject<WKScriptMessageHandler>
 -(void)HideWebView;
 -(void)ShowWebView;
+-(void)EvaluateJS:(NSString *)js;
 @property (nonatomic,strong) WKWebView *webview;
 @property (nonatomic,strong) NSString *url;
 

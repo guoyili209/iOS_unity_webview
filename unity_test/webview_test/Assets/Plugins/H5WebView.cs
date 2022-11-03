@@ -18,10 +18,10 @@ public class H5WebView : MonoBehaviour
     }
     public void OnButtonClick(){
         JSONTest obj = new JSONTest();
-        // obj.url = "http://192.168.11.206:3000/index.html";
+        obj.url = "http://192.168.10.241:3000/index.html";
         obj.gameObjName = "OC";
         obj.OCMessageMethodName = "OCMessage";
-        obj.url = "http://www.baidu.com";
+        // obj.url = "http://www.baidu.com";
             obj.data = "test";
             obj.msgType = 100;
             
