@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "WebViewController.h"
 #import "HFiveGameTool.h"
+#import "UnityBridge.h"
 
 
 @implementation WebViewController
@@ -58,17 +59,25 @@
     configuration.allowsInlineMediaPlayback = YES;
     
     WKUserContentController *userContent = [[WKUserContentController alloc] init];
-        [userContent addScriptMessageHandler:self name:@"JSMessage"];
+    [userContent addScriptMessageHandler:self name:@"JSMessage"];
     
     configuration.userContentController = userContent;
     configuration.websiteDataStore = [WKWebsiteDataStore defaultDataStore];
     //---
     WKPreferences *preferences = [WKPreferences new];
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
-    WKWebpagePreferences *webpagePreference = [WKWebpagePreferences new];
-    webpagePreference.allowsContentJavaScript = YES;
-    configuration.preferences = preferences;
-    configuration.defaultWebpagePreferences = webpagePreference;
+    if (@available(iOS 13.0, *)) {
+        WKWebpagePreferences *webpagePreference = [WKWebpagePreferences new];
+        if (@available(iOS 14.0, *)) {
+            webpagePreference.allowsContentJavaScript = YES;
+        } else {
+            // Fallback on earlier versions
+        }
+        configuration.preferences = preferences;
+        configuration.defaultWebpagePreferences = webpagePreference;
+    } else {
+        // Fallback on earlier versions
+    }
     //---
     self.webview = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds configuration:configuration];
     //    NSURL *url_ = [NSURL URLWithString:@"http://192.168.11.206:3000/index.html"];
@@ -91,6 +100,12 @@
     if([@"JSMessage" isEqualToString:message.name]){
         NSLog(@"%@",message.body);
         [self EvaluateJS:@"window.OCMessage('hello JS')"];
+        if([@"GetLoginData" isEqualToString:message.body]){
+            NSString *method1 = @"window.OCMessage(";
+            NSString *method2 = [method1 stringByAppendingFormat:@"%@", [UnityBridge SharedObject].data];
+            NSString *method3 = [method2 stringByAppendingString:@")"];
+            [self EvaluateJS:method3];
+        }
     }
 }
 - (void)EvaluateJS:(NSString *)js
@@ -104,13 +119,13 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     //    [super viewWillAppear:animated];
-//    [self.webview.configuration.userContentController addScriptMessageHandler:self name:@"JSMessage"];
+    //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:@"JSMessage"];
     //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goPageSelectClass];
     //    [self.webview.configuration.userContentController addScriptMessageHandler:self name:JS_goClasscardList];
 }
 -(void)viewWillDisappear:(BOOL)animated{
     //    [super viewWillDisappear:animated];
-//    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"JSMessage"];
+    //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:@"JSMessage"];
     //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goPageSelectClass];
     //    [self.webview.configuration.userContentController removeScriptMessageHandlerForName:JS_goClasscardList];
 }

@@ -12,5 +12,6 @@
 @interface UnityBridge:NSObject
 +(UnityBridge *)SharedObject;
 @property WebViewController *wvc;
+@property NSString *data;
 @end
 #endif /* UnityBridge_h */

@@ -44,6 +44,7 @@ void CSharpMessage(char *json){
         NSLog(@"wvc:%@",[UnityBridge SharedObject].wvc);
         [UnityBridge SharedObject].wvc.url = url;
         [[UnityBridge SharedObject].wvc ShowWebView];
+        [UnityBridge SharedObject].data = string;
         if(msgType==OpenGame){
             NSDictionary *myDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:@"value1", @"key1",@"value2", @"key2", nil];
 //            NSMutableDictionary *mutableDictionary = [myDictionary mutableCopy];
@@ -52,7 +53,6 @@ void CSharpMessage(char *json){
             NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
             UnitySendMessage((char*)[gameObjName UTF8String],(char*)[OCMessageMethodName UTF8String] , (char*)[jsonString UTF8String]);
-            
         }else if(msgType == ChargeFinish){
             
         }else if(msgType == PlayAdsFinish){
