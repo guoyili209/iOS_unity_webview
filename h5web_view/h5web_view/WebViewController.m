@@ -42,15 +42,15 @@
     //    }];
     
     
-    UIButton *closebtn = [[UIButton alloc]initWithFrame:CGRectMake(100,100,100,100)];
-    //    UIButton *closebtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    closebtn.titleLabel.font = [UIFont fontWithName:@"" size:20];
-    [closebtn setTitle:@"Hello, World!" forState:UIControlStateNormal];
-    //    closebtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [closebtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    
-    [closebtn addTarget:self action:@selector(close_webView:) forControlEvents:UIControlEventTouchUpInside];
-    [UnityGetGLViewController().view addSubview:closebtn];
+//    UIButton *closebtn = [[UIButton alloc]initWithFrame:CGRectMake(100,100,100,100)];
+//    //    UIButton *closebtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    closebtn.titleLabel.font = [UIFont fontWithName:@"" size:20];
+//    [closebtn setTitle:@"Hello, World!" forState:UIControlStateNormal];
+//    //    closebtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+//    [closebtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+//
+//    [closebtn addTarget:self action:@selector(close_webView:) forControlEvents:UIControlEventTouchUpInside];
+//    [UnityGetGLViewController().view addSubview:closebtn];
 }
 -(void)DidShowWebView{
     // Do any additional setup after loading the view.
@@ -99,12 +99,16 @@
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     if([@"JSMessage" isEqualToString:message.name]){
         NSLog(@"%@",message.body);
-        [self EvaluateJS:@"window.OCMessage('hello JS')"];
+//        [self EvaluateJS:@"window.OCMessage('hello JS')"];
         if([@"GetLoginData" isEqualToString:message.body]){
             NSString *method1 = @"window.OCMessage(";
             NSString *method2 = [method1 stringByAppendingFormat:@"%@", [UnityBridge SharedObject].data];
             NSString *method3 = [method2 stringByAppendingString:@")"];
             [self EvaluateJS:method3];
+        }else if([@"CloseWebView" isEqualToString:message.body]){
+            [self HideWebView];
+        }else{
+            [[UnityBridge SharedObject] OCMessage:message.body];
         }
     }
 }

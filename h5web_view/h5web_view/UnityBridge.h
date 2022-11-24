@@ -11,6 +11,9 @@
 
 @interface UnityBridge:NSObject
 +(UnityBridge *)SharedObject;
+-(void)OCMessage:(NSString *)json;
+@property NSString *gameObjectName;
+@property NSString *methodName;
 @property WebViewController *wvc;
 @property NSString *data;
 @end

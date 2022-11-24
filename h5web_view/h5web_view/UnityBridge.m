@@ -18,4 +18,9 @@
     });
     return sharedClass;
 }
+-(void)OCMessage:(NSString *)json{
+    NSString *gameObjName = [UnityBridge SharedObject].gameObjectName;
+    NSString *OCMessageMethodName = [UnityBridge SharedObject].methodName;
+    UnitySendMessage((char*)[gameObjName UTF8String],(char*)[OCMessageMethodName UTF8String] , (char*)[json UTF8String]);
+}
 @end

@@ -38,6 +38,9 @@ void CSharpMessage(char *json){
         NSString *gameObjName =[jsonDic valueForKey:@"gameObjName"];
         NSString *OCMessageMethodName =[jsonDic valueForKey:@"OCMessageMethodName"];
         
+        [UnityBridge SharedObject].gameObjectName = gameObjName;
+        [UnityBridge SharedObject].methodName =OCMessageMethodName;
+        
         if([UnityBridge SharedObject].wvc==nil){
             [UnityBridge SharedObject].wvc = [WebViewController new];
         }
@@ -46,20 +49,19 @@ void CSharpMessage(char *json){
         [[UnityBridge SharedObject].wvc ShowWebView];
         [UnityBridge SharedObject].data = string;
         if(msgType==OpenGame){
-            NSDictionary *myDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:@"value1", @"key1",@"value2", @"key2", nil];
-//            NSMutableDictionary *mutableDictionary = [myDictionary mutableCopy];
-            NSData *data = [NSJSONSerialization dataWithJSONObject:myDictionary
-            options:NSJSONWritingPrettyPrinted error:nil];
-            NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//            NSDictionary *myDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:@"value1", @"key1",@"value2", @"key2", nil];
+////            NSMutableDictionary *mutableDictionary = [myDictionary mutableCopy];
+//            NSData *data = [NSJSONSerialization dataWithJSONObject:myDictionary
+//            options:NSJSONWritingPrettyPrinted error:nil];
+//            NSString *jsonString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             
-            UnitySendMessage((char*)[gameObjName UTF8String],(char*)[OCMessageMethodName UTF8String] , (char*)[jsonString UTF8String]);
+//            UnitySendMessage((char*)[gameObjName UTF8String],(char*)[OCMessageMethodName UTF8String] , (char*)[jsonString UTF8String]);
         }else if(msgType == ChargeFinish){
             
         }else if(msgType == PlayAdsFinish){
             
         }
     }
-    
     
 }
 @end
