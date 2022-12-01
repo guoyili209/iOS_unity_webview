@@ -98,12 +98,12 @@
 //---WKScriptMessageHandler---
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     if([@"JSMessage" isEqualToString:message.name]){
-        NSLog(@"%@",message.body);
+        NSLog(@"message.body:%@",message.body);
 //        [self EvaluateJS:@"window.OCMessage('hello JS')"];
         if([@"GetLoginData" isEqualToString:message.body]){
-            NSString *method1 = @"window.OCMessage(";
+            NSString *method1 = @"window.OCMessage('";
             NSString *method2 = [method1 stringByAppendingFormat:@"%@", [UnityBridge SharedObject].data];
-            NSString *method3 = [method2 stringByAppendingString:@")"];
+            NSString *method3 = [method2 stringByAppendingString:@"')"];
             [self EvaluateJS:method3];
         }else if([@"CloseWebView" isEqualToString:message.body]){
             [self HideWebView];
@@ -117,8 +117,13 @@
     if (self.webview == nil)
         return;
     //    NSString *jsStr = [NSString stringWithUTF8String:js];
+    NSLog(@"js code:%@",js);
     [self.webview evaluateJavaScript:js completionHandler:^(NSString *result, NSError *error) {
-        NSLog(@"%@", result);
+        if(error!=nil){
+            NSLog(@"js error:%@",error);
+        }else{
+            NSLog(@"js result:%@", result);
+        }
     }];
 }
 -(void)viewWillAppear:(BOOL)animated{
