@@ -86,7 +86,16 @@
     NSLog(@"add view");
     [UnityGetGLViewController().view addSubview:self.webview];
     NSLog(@"load");
+    self.webview.opaque = NO;
+    self.webview.backgroundColor = [UIColor clearColor];
     [self.webview loadRequest:request];
+    CGRect main_rect = [UIScreen mainScreen].bounds;
+    
+    [self.webview setFrame:CGRectMake( 0.0f, main_rect.size.height, main_rect.size.width, main_rect.size.height)]; //notice this is OFF screen!
+    [UIView beginAnimations:@"animateTableView" context:nil];
+    [UIView setAnimationDuration:0.4];
+    [self.webview setFrame:CGRectMake( 0.0f, 0.0f, main_rect.size.width, main_rect.size.height)]; //notice this is ON screen!
+    [UIView commitAnimations];
     
     //    webview.UIDelegate = self;
     //    webview.navigationDelegate = self;
