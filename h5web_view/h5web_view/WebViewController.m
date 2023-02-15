@@ -88,6 +88,7 @@
     NSLog(@"load");
     self.webview.opaque = NO;
     self.webview.backgroundColor = [UIColor clearColor];
+    self.webview.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [self.webview loadRequest:request];
     CGRect main_rect = [UIScreen mainScreen].bounds;
     

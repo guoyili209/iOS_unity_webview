@@ -19,7 +19,7 @@ public class H5WebView : MonoBehaviour
     public void OnButtonClick()
     {
         JSONTest obj = new JSONTest();
-        obj.url = "http://192.168.11.153:3000/index.html";
+        obj.url = "http://192.168.11.93:3000/index.html";
         obj.gameObjName = "OC";
         obj.OCMessageMethodName = "OCMessage";
         // obj.url = "http://www.baidu.com";
@@ -46,10 +46,17 @@ public class H5WebView : MonoBehaviour
         // IOSshowWebView("http://www.baidu.com",1);
 
     }
+    public void OnClickDropFrame()
+    {
+        Application.targetFrameRate = 1;
+    }
     // Update is called once per frame
     void Update()
     {
-
+        int sum=0;
+        for(int i=0;i<100000000;i++){
+            sum+=i;
+        }
     }
 }
 public class ChargeData
