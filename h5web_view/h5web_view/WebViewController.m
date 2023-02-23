@@ -42,15 +42,15 @@
     //    }];
     
     
-//    UIButton *closebtn = [[UIButton alloc]initWithFrame:CGRectMake(100,100,100,100)];
-//    //    UIButton *closebtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    closebtn.titleLabel.font = [UIFont fontWithName:@"" size:20];
-//    [closebtn setTitle:@"Hello, World!" forState:UIControlStateNormal];
-//    //    closebtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    [closebtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-//
-//    [closebtn addTarget:self action:@selector(close_webView:) forControlEvents:UIControlEventTouchUpInside];
-//    [UnityGetGLViewController().view addSubview:closebtn];
+    //    UIButton *closebtn = [[UIButton alloc]initWithFrame:CGRectMake(100,100,100,100)];
+    //    //    UIButton *closebtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    closebtn.titleLabel.font = [UIFont fontWithName:@"" size:20];
+    //    [closebtn setTitle:@"Hello, World!" forState:UIControlStateNormal];
+    //    //    closebtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    //    [closebtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    //
+    //    [closebtn addTarget:self action:@selector(close_webView:) forControlEvents:UIControlEventTouchUpInside];
+    //    [UnityGetGLViewController().view addSubview:closebtn];
 }
 -(void)DidShowWebView{
     // Do any additional setup after loading the view.
@@ -109,7 +109,7 @@
 -(void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message{
     if([@"JSMessage" isEqualToString:message.name]){
         NSLog(@"message.body:%@",message.body);
-//        [self EvaluateJS:@"window.OCMessage('hello JS')"];
+        //        [self EvaluateJS:@"window.OCMessage('hello JS')"];
         if([@"GetLoginData" isEqualToString:message.body]){
             NSString *method1 = @"window.OCMessage('";
             NSString *method2 = [method1 stringByAppendingFormat:@"%@", [UnityBridge SharedObject].data];
@@ -117,7 +117,19 @@
             [self EvaluateJS:method3];
         }else if([@"CloseWebView" isEqualToString:message.body]){
             [self HideWebView];
-        }else{
+        }else if([@"GetSafeArea" isEqualToString:message.body]){
+            UIWindow *window = UIApplication.sharedApplication.windows.firstObject;
+            CGFloat topPadding = window.safeAreaInsets.top;
+            CGFloat bottomPadding = window.safeAreaInsets.bottom;
+            CGFloat leftPadding = window.safeAreaInsets.left;
+            CGFloat rightPadding = window.safeAreaInsets.right;
+            NSInteger scale = [UIScreen mainScreen].scale;
+            NSString *s1 = @"window.OCSafeArea('";
+            NSString *s2 = [s1 stringByAppendingFormat:@"%f,%f,%f,%f, %ld",topPadding,bottomPadding,leftPadding,rightPadding,scale];
+            NSString *s3 = [s2 stringByAppendingString:@"')"];
+            [self EvaluateJS:s3];
+        }
+        else{
             [[UnityBridge SharedObject] OCMessage:message.body];
         }
     }
